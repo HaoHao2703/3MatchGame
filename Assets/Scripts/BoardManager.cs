@@ -76,7 +76,7 @@ public class BoardManager : MonoBehaviour
         }
         StartCoroutine(Fill());
     }
-    public void ReArrange()
+    /*public void ReArrange()
     {
 
         for (int i = 0; i < itemPrefabs.Length; i++)
@@ -118,7 +118,7 @@ public class BoardManager : MonoBehaviour
             }
         }
         StartCoroutine(Fill());
-    }
+    }*/
     public IEnumerator Fill()
     {
         bool needRefill = true;
@@ -208,6 +208,7 @@ public class BoardManager : MonoBehaviour
         {
             return;
         }
+
 
         if (item1.IsMoveable() && item2.IsMoveable())
         {
@@ -304,56 +305,6 @@ public class BoardManager : MonoBehaviour
                 }
             }
 
-            /*//Traverser
-            if(hozItems.Count >= 3)
-            {
-                for(int i = 0; i < hozItems.Count; i++)
-                {
-                    for (int dir = 0; dir <= 1; dir++)
-                    {
-                        for (int yOffset = 1; yOffset < yDim; yOffset++)
-                        {
-                            int y;
-                            if (dir == 0)
-                            {
-                                y = newY - yOffset;
-                            }
-                            else
-                            {
-                                y = newY + yOffset;
-                            }
-
-                            if (y < 0 || y >= yDim)
-                            {
-                                break;
-                            }
-
-                            if (items[hozItems[i].X, y].IsFruit() && items[hozItems[i].X, y].FruitComponent._FruitType == type)
-                            {
-                                vertItem.Add(items[hozItems[i].X, y]);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                    }
-                    if (vertItem.Count < 2)
-                    {
-                        vertItem.Clear();
-                    }
-                    else
-                    {
-                        for (int j = 0; j < vertItem.Count; j++)
-                        {
-                            matchItem.Add(vertItem[j]);
-                        }
-                        break;
-                    }
-
-                }
-            }*/
-            
             if (matchItem.Count >= 3)
             {
                 return matchItem;
@@ -363,6 +314,7 @@ public class BoardManager : MonoBehaviour
             vertItem.Clear();
 
             vertItem.Add(item);
+
             //Vertical check
             for (int dir = 0; dir <= 1; dir++)
             {
@@ -403,54 +355,6 @@ public class BoardManager : MonoBehaviour
             
             }
 
-            /*//Traverser
-            if (vertItem.Count >= 3)
-            {
-                for (int i = 0; i < vertItem.Count; i++)
-                {
-                    for (int dir = 0; dir <= 1; dir++)
-                    {
-                        for (int xOffset = 1; xOffset < xDim; xOffset++)
-                        {
-                            int x;
-                            if (dir == 0)
-                            {
-                                x = newX - xOffset;
-                            }
-                            else
-                            {
-                                x = newX + xOffset;
-                            }
-
-                            if (x < 0 || x >= xDim)
-                            {
-                                break;
-                            }
-
-                            if (items[x, vertItem[i].Y].IsFruit() && items[x, vertItem[i].Y].FruitComponent._FruitType == type)
-                            {
-                                vertItem.Add(items[x, vertItem[i].Y]);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                    }
-                    if (hozItems.Count < 2)
-                    {
-                        hozItems.Clear();
-                    }    
-                    else
-                    {
-                        for (int j = 0; j < hozItems.Count; j++)
-                        {
-                            matchItem.Add(hozItems[j]);
-                        }
-                        break;
-                    }
-                }
-            }*/
 
             if (matchItem.Count >= 3)
             {
@@ -502,7 +406,6 @@ public class BoardManager : MonoBehaviour
     {
         gameOver = true;
     }
-
 
 
 
